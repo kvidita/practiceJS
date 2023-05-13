@@ -7,11 +7,9 @@ const searchMatch = function (string, list) {
 const createList = function (list1, list2) {
   const list = [];
 
-  list1.map(function (string) {
-    const match = searchMatch(string.slice(-4), list2);
-    const newString = string.concat(match.slice(4));
-    list.push(newString);
-  });
+  list1.map((string) =>
+    list.push(string + searchMatch(string.slice(-4), list2).slice(4))
+  );
 
   return list;
 };
