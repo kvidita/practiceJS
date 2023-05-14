@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { createList, textToArray } = require("./src/matchString.js");
+const { createList, splitLines } = require("./src/matchString.js");
 
 const main = function () {
   const content1 = process.argv[2];
@@ -8,8 +8,8 @@ const main = function () {
   const file1 = fs.readFileSync(content1, "utf-8");
   const file2 = fs.readFileSync(content2, "utf-8");
 
-  const list1 = textToArray(file1);
-  const list2 = textToArray(file2);
+  const list1 = splitLines(file1);
+  const list2 = splitLines(file2);
 
   const list3 = createList(list1, list2);
   console.log(list3);
